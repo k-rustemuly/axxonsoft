@@ -15,24 +15,9 @@ class TreeService
                 if ($childs) {
                     $element['childs'] = $childs;
                 }
-                $tree[$element['id']] = $element;
-                unset($data[$element['id']]);
+                $tree[] = $element;
             }
         }
         return $tree;
-    }
-
-    public function reIndexTree(array $tree)
-    {
-        $cleared = array();
-        foreach($tree as $key => $element)
-        {
-            if(isset($element["childs"]))
-            {
-                $element["childs"] = $this->reIndexTree($element["childs"]);
-            }
-            $cleared[] = $element;
-        }
-        return $cleared;
     }
 }

@@ -11,7 +11,6 @@ class TreeController extends Controller
     {
         $data = $request->validated("array", []);
         $tree = $service->buildTree($data);
-        $clearedTree = $service->reIndexTree($tree);
-        return $clearedTree;
+        return $tree;
     }
 }
